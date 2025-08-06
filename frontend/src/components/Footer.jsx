@@ -21,7 +21,6 @@ const Footer = () => {
               <li><a href="/about" className="hover:text-white">About Us</a></li>
               <li><a href="/services" className="hover:text-white">Services</a></li>
               <li><a href="/contact" className="hover:text-white">Contact</a></li>
-              <li><a href="/faq" className="hover:text-white">FAQ</a></li>
             </ul>
           </div>
 
@@ -29,10 +28,10 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-white mb-4">Our Services</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">AC Installation</a></li>
-              <li><a href="#" className="hover:text-white">Heating Repair</a></li>
-              <li><a href="#" className="hover:text-white">Panel Upgrades</a></li>
+              <li><a href="#" className="hover:text-white">Electrical Installation</a></li>
+              <li><a href="#" className="hover:text-white">Wiring</a></li>
               <li><a href="#" className="hover:text-white">Home Automation</a></li>
+              <li><a href="#" className="hover:text-white">Solar Consultation</a></li>
             </ul>
           </div>
 
@@ -42,7 +41,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-gray-400">123 Electric Ave,<br/>Pimpri-Chinchwad, MH</li>
               <li className="text-gray-400">contact@raghav.com</li>
-              <li className="text-gray-400">(123) 456-7890</li>
+              <li className="text-gray-400">+91-987654321</li>
             </ul>
           </div>
         </div>

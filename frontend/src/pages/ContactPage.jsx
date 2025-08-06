@@ -14,7 +14,6 @@ const ContactPage = () => {
         message: '',
     });
     
-    // 2. Add states for loading, submission status, and errors
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ success: false, error: false, message: '' });
 
@@ -25,24 +24,21 @@ const ContactPage = () => {
         setFormData(prevState => ({ ...prevState, [name]: value }));
     };
 
-    // 3. Update handleSubmit to use axios
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus({ success: false, error: false, message: '' });
 
         try {
-            // Send a POST request to your backend
             await axios.post(`${API_URL}/message`, formData);
 
             setSubmitStatus({ success: true, error: false, message: 'Thank you! Your message has been sent.' });
-            setFormData({ name: '', email: '', message: '' }); // Clear form on success
+            setFormData({ name: '', email: '', message: '' }); 
         } catch (error) {
             console.error('Failed to send message:', error);
             setSubmitStatus({ success: false, error: true, message: 'Failed to send message. Please try again.' });
         } finally {
             setIsSubmitting(false);
-            // Hide the status message after a few seconds
             setTimeout(() => {
                 setSubmitStatus({ success: false, error: false, message: '' });
             }, 5000);
@@ -83,7 +79,7 @@ const ContactPage = () => {
                             </div>
                             <div>
                                 <span className="text-indigo-200 text-sm">Call us</span>
-                                <p className="text-white font-semibold text-lg">(123) 456-7890</p>
+                                <p className="text-white font-semibold text-lg">+91-987654321</p>
                             </div>
                         </div>
                     </div>
@@ -108,7 +104,7 @@ const ContactPage = () => {
                                 <Phone className="h-6 w-6 text-indigo-600 mt-1 mr-4 flex-shrink-0" />
                                 <div>
                                     <h3 className="font-semibold">Phone & WhatsApp</h3>
-                                    <a href="tel:+911234567890" className="text-gray-600 hover:text-indigo-600">+91 (123) 456-7890</a>
+                                    <a href="tel:+911234567890" className="text-gray-600 hover:text-indigo-600">+91-987654321</a>
                                 </div>
                             </div>
                             <div className="flex items-start">
