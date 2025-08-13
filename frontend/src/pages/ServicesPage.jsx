@@ -1,119 +1,125 @@
 import { motion } from 'framer-motion';
-import { Wrench, Cable, Home, Sun } from 'lucide-react';
-
-import electricalInstallationImage from '../assets/electrical-panel.jpg';
-import wiringImage from '../assets/wiring.jpg';
-import homeAutomationImage from '../assets/home-automation.jpg';
-import solarImage from '../assets/solar.jpg';
+import { PenTool, Cable, CircuitBoard, Layout, Zap, Lightbulb, Home, Wrench, ShieldCheck } from 'lucide-react';
 
 const servicesData = [
   {
-    title: 'Electrical Installation',
-    description: 'From single socket installations to complete home or office wiring, our certified electricians ensure every job is done safely and to the highest industry standards. We handle lighting, panels, and all major electrical setups.',
-    image: electricalInstallationImage,
-    icon: Wrench,
-    bgColor: 'bg-blue-50',
-    iconColor: 'text-blue-600',
+    title: 'Design Engineering',
+    icon: PenTool,
+    items: ['Design Drafting', 'Preparation of Single Line Diagram', 'General Arrangement & Schematic Diagrams', 'Preparation of Bill Of Materials', 'Busbar / BBT Design', 'Preparation of Key Single Line Diagrams']
   },
   {
-    title: 'Wiring & Rewiring',
-    description: 'Whether you\'re building a new property or upgrading an old one, our expert wiring services guarantee a safe and reliable electrical infrastructure. We troubleshoot and repair faulty wiring to prevent hazards.',
-    image: wiringImage,
+    title: 'Cable Engineering',
     icon: Cable,
-    bgColor: 'bg-green-50',
-    iconColor: 'text-green-600',
+    items: ['Cable Sizing', 'Cable Glands & Lugs', 'Cable Schedules', 'Interconnection Details', 'Loop wiring Diagram', 'Cable Termination Schedules']
   },
   {
-    title: 'Home Automation',
-    description: 'Step into the future with our smart home solutions. We install and configure automated lighting, security systems, smart thermostats, and more, giving you complete control over your home\'s environment from your smartphone.',
-    image: homeAutomationImage,
+    title: 'Equipment Engineering',
+    icon: CircuitBoard,
+    items: ['ECR Equipment Layout', 'Electrical Equipment Engineering', 'Instrumentation Engineering']
+  },
+  {
+    title: 'Layout Engineering',
+    icon: Layout,
+    items: ['Cable Tray Routing', 'Cable gallery', 'Tray sizing', 'Tray routing & BOQ']
+  },
+  {
+    title: 'Earthing & Lightning',
+    icon: Zap,
+    items: ['Earthing Design & Sizing', 'Preparation of BOM', 'Layouts and Typical Installations']
+  },
+  {
+    title: 'Lighting',
+    icon: Lightbulb,
+    items: ['Lighting Load Calculations & Distributions', 'Layouts and Typical Connections', 'Dialux Calculation']
+  },
+  {
+    title: 'PLC and Panel Engineering',
+    icon: ShieldCheck,
+    items: ['PLC/DCS Panel GA & IGA Drawings', 'System Architecture', 'IO Allocation', 'Power & Control Schematics', 'Wiring & Interconnection Details', 'Load list & Power Balancing', 'Bus bar Engineering', 'MCT System Engineering']
+  },
+  {
+    title: 'E House Services',
     icon: Home,
-    bgColor: 'bg-indigo-50',
-    iconColor: 'text-indigo-600',
+    items: ['E House Sizing', 'E House Supplying', 'Panel Location Layout']
   },
   {
-    title: 'Solar Consultation',
-    description: 'Thinking of going green? Our solar experts provide comprehensive consultations to help you understand the benefits of solar energy. We design and install efficient solar panel systems tailored to your energy needs.',
-    image: solarImage,
-    icon: Sun,
-    bgColor: 'bg-yellow-50',
-    iconColor: 'text-yellow-600',
+    title: 'Winding Services',
+    icon: Wrench,
+    items: ['All types of Motor Winding', 'Control Trafo Winding', 'DC Motor Winding', 'Motor Connection Winding', 'Motor Lathe Works', 'Annual Maintanence of Motors (AMC)', 'DOL and Star Delta Starters Services']
   },
 ];
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: "easeOut" },
-  viewport: { once: true },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
 };
 
 const ServicesPage = () => {
   return (
-    <div className="bg-gradient-to-b from-white via-gray-50 to-indigo-50 py-16 md:py-24 overflow-x-hidden">
+    <div className="bg-gradient-to-b from-white via-gray-50 to-indigo-50 py-16 md:py-24">
       <div className="container mx-auto px-6">
 
-        {/* Header */}
+        {/* Header with new background */}
+        <div className="bg-gray-900 rounded-3xl mb-20">
+          <motion.div
+            className="text-center p-12 md:p-20"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              Our Expertise & Services
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
+              End-to-end electrical and automation solutions tailored for industrial excellence.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Services Grid */}
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-            ⚡️ Comprehensive Electrical Services
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
-            Professional solutions for all your residential and commercial needs.
-          </p>
-        </motion.div>
-
-        {/* Services Section */}
-        <div className="space-y-20">
-          {servicesData.map((service, index) => {
-            const isReversed = index % 2 !== 0;
+          {servicesData.map((service) => {
             const Icon = service.icon;
-
             return (
               <motion.div
                 key={service.title}
-                className={`p-8 rounded-3xl shadow-lg ${service.bgColor}`}
-                {...fadeInUp}
+                className="bg-white rounded-2xl shadow-lg p-8 flex flex-col h-full border border-gray-100"
+                variants={cardVariants}
+                whileHover={{ scale: 1.03, y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.1)' }}
+                transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="grid md:grid-cols-5 gap-12 items-center">
-                  {/* Image */}
-                  <motion.div
-                    className={`md:col-span-2 rounded-2xl overflow-hidden shadow-xl ${isReversed ? 'md:order-2' : ''
-                      }`}
-                    whileHover={{ scale: 1.03, y: -5 }}
-                    transition={{ type: 'spring', stiffness: 200 }}
-                  >
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-
-                  {/* Content */}
-                  <motion.div
-                    className={`md:col-span-3 ${isReversed ? 'md:order-1' : ''}`}
-                    {...fadeInUp}
-                    transition={{ ...fadeInUp.transition, delay: 0.2 }}
-                  >
-                    <div className={`flex items-center mb-4 ${service.iconColor}`}>
-                      <Icon className="h-10 w-10 mr-3" />
-                      <h2 className="text-3xl font-bold text-gray-800">{service.title}</h2>
-                    </div>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </motion.div>
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-indigo-100 rounded-full mr-4">
+                    <Icon className="h-8 w-8 text-indigo-600" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-800">{service.title}</h2>
                 </div>
+                <ul className="space-y-2 text-gray-600 flex-grow">
+                  {service.items.map((item) => (
+                    <li key={item} className="flex items-start">
+                      <span className="text-indigo-500 mr-2 mt-1.5">&#10003;</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
