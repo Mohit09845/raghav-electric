@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <img src="/favico.png" height={28} width={28} alt="Logo" />
-              <span className="text-2xl font-bold text-white">Raghav Electrical</span>
+              <span className="text-2xl font-bold text-white">Engenix</span>
             </div>
             <p className="text-gray-400">Your trusted partner for all electrical needs. Quality service, guaranteed.</p>
           </div>
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Raghav Electrical. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Engenix. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

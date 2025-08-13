@@ -20,12 +20,12 @@ const About = () => {
         {
             year: "2002",
             title: "Evolved as an Individual",
-            text: "After completion of 25yrs of partnership new company started as Raghav Electricals.",
+            text: "After completion of 25yrs of partnership new company started as Engenix.",
         },
         {
             year: "2021",
             title: "Revamp for the Future",
-            text: "Company emerged as Raghav Electric to elevate our level upto global market level.",
+            text: "Company emerged as Engenix to elevate our level upto global market level.",
         },
     ];
 
@@ -63,7 +63,7 @@ const About = () => {
                         </div>
                         <div className="text-gray-600 space-y-4 text-lg">
                             <p>
-                                <b>Raghav Electric</b> is established in 2002 with the vision to provide the Best Electrical & Automation engineering Design solution for Cement Plant, Steel Plant, Oil & Gas Plant, and more. We also supply All Types of Industrial Electrical Components & Consumables goods.
+                                <b>Engenix</b> is established in 2002 with the vision to provide the Best Electrical & Automation engineering Design solution for Cement Plant, Steel Plant, Oil & Gas Plant, and more. We also supply All Types of Industrial Electrical Components & Consumables goods.
                             </p>
                             <div>
                                 <h3 className="font-semibold text-gray-800 mt-6 mb-2">Expertise in Software for Electrical Design:</h3>
@@ -86,7 +86,7 @@ const About = () => {
                     <motion.div {...fadeInAnimation} transition={{ ...fadeInAnimation.transition, delay: 0.2 }}>
                         <img
                             src={storefrontImage}
-                            alt="Raghav Electrical storefront"
+                            alt="Engenix storefront"
                             className="rounded-2xl shadow-xl w-full h-auto object-cover"
                         />
                     </motion.div>
