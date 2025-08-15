@@ -108,8 +108,8 @@ const About = () => {
                     </motion.div>
 
                     <div className="relative max-w-4xl mx-auto">
-                        {/* Vertical line */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-indigo-200 h-full rounded"></div>
+                        {/* Vertical line - left on mobile, center on desktop */}
+                        <div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 w-1 bg-indigo-200 h-full rounded"></div>
 
                         {historyData.map((item, index) => (
                             <motion.div
@@ -118,24 +118,28 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                                className={`mb-16 flex items-center w-full ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                                className={`mb-16 flex items-center w-full flex-col md:${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
                             >
-                                <div className="w-1/2 px-6">
-                                    <div className="bg-white p-6 rounded-xl shadow-lg border border-indigo-100 hover:shadow-xl transition">
+                                <div className="w-full md:w-1/2 px-6 relative">
+                                    {/* Number circle - left on mobile, center on desktop */}
+                                    <div className="absolute -left-8 md:static flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-full border-4 border-white shadow-lg">
+                                        <span className="text-white font-bold">{index + 1}</span>
+                                    </div>
+
+                                    <div className="bg-white p-6 rounded-xl shadow-lg border border-indigo-100 hover:shadow-xl transition mt-6 md:mt-0">
                                         <h3 className="text-2xl font-bold text-indigo-600">{item.year} - {item.title}</h3>
                                         <p className="mt-2 text-lg text-gray-600">{item.text}</p>
                                     </div>
                                 </div>
-                                <div className="relative z-10 flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-full border-4 border-white shadow-lg">
-                                    <span className="text-white font-bold">{index + 1}</span>
-                                </div>
-                                <div className="w-1/2"></div>
+
+                                <div className="w-full md:w-1/2"></div>
                             </motion.div>
                         ))}
                     </div>
                 </section>
 
-                {/* Vision and Mission */}
+
+                {/* Vision Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <motion.div {...fadeInAnimation} className="bg-green-50 p-8 rounded-2xl border border-green-200">
                         <div className="flex items-center text-green-600 mb-4">
